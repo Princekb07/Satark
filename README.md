@@ -120,4 +120,10 @@ Satark/
 
 The SATARK monitoring dashboard provides a web-based interface for viewing system status, sensor information, alerts, and monitoring data.
 
-![SATARK Dashboard](assets/Dashboard.png)
+![SATARK Dashboard - View 1](assets/dashboard.png)
+
+![SATARK Dashboard - View 2](assets/dashboard-2.jpeg)
+
+![SATARK Dashboard - View 3](assets/dashboard-3.jpeg)
+
+![SATARK Dashboard - View 4](assets/dashboard-4.jpeg)
