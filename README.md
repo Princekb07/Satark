@@ -114,6 +114,7 @@ Satark/
 └── logs/
 ---
 
+
 ## 📊 Dashboard
 
 The SATARK monitoring dashboard provides a web-based interface for viewing system status, sensor information, alerts, and monitoring data.
