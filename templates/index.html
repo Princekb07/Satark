@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ title }}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div>
+            <h1>SATARK</h1>
+            <p>Driver Monitoring & Safety System</p>
+        </div>
+
+        <div id="systemStatus" class="online">
+            ● SYSTEM ONLINE
+        </div>
+
+    </header>
+
+
+    <!-- MAIN AREA -->
+    <main class="main-grid">
+
+        <!-- CAMERA -->
+        <section class="panel camera-panel">
+
+            <div class="panel-title">
+                AI DRIVER MONITOR
+            </div>
+
+            <div class="camera-container">
+
+                <img
+                    id="cameraFeed"
+                    src="/video"
+                    alt="SATARK Camera Feed"
+                >
+
+                <div id="cameraAlert"
+                     class="camera-alert">
+                    🚨 ALERT 🚨
+                </div>
+
+            </div>
+
+
+            <!-- DRIVER INFORMATION -->
+
+            <div class="driver-information">
+
+                <div>
+                    <span>DRIVER</span>
+                    <strong id="driverStatus">
+                        INITIALIZING
+                    </strong>
+                </div>
+
+                <div>
+                    <span>EYES</span>
+                    <strong id="eyeStatus">
+                        --
+                    </strong>
+                </div>
+
+                <div>
+                    <span>FPS</span>
+                    <strong id="fps">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+
+        <section class="right-column">
+
+            <!-- CLOCK -->
+
+            <div class="panel clock-panel">
+
+                <div class="panel-title">
+                    CURRENT TIME
+                </div>
+
+                <canvas
+                    id="analogClock"
+                    width="220"
+                    height="220">
+                </canvas>
+
+                <div id="digitalTime">
+                    --:--:--
+                </div>
+
+            </div>
+
+
+            <!-- ENVIRONMENT -->
+
+            <div class="panel">
+
+                <div class="panel-title">
+                    CABIN ENVIRONMENT
+                </div>
+
+                <div class="environment-grid">
+
+                    <div class="sensor-card">
+
+                        <span>
+                            TEMPERATURE
+                        </span>
+
+                        <strong id="temperature">
+                            --
+                        </strong>
+
+                        <small>°C</small>
+
+                    </div>
+
+
+                    <div class="sensor-card">
+
+                        <span>
+                            HUMIDITY
+                        </span>
+
+                        <strong id="humidity">
+                            --
+                        </strong>
+
+                        <small>%</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+    <!-- ULTRASONIC SENSORS -->
+
+    <section class="panel ultrasonic-section">
+
+        <div class="panel-title">
+            OBSTACLE DISTANCE MONITOR
+        </div>
+
+        <div class="distance-grid">
+
+            <div class="distance-card">
+                <span>⬆ FRONT</span>
+                <strong id="frontDistance">--</strong>
+            </div>
+
+            <div class="distance-card">
+                <span>⬇ BACK</span>
+                <strong id="backDistance">--</strong>
+            </div>
+
+            <div class="distance-card">
+                <span>⬅ LEFT</span>
+                <strong id="leftDistance">--</strong>
+            </div>
+
+            <div class="distance-card">
+                <span>➡ RIGHT</span>
+                <strong id="rightDistance">--</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SAFETY STATUS -->
+
+    <section class="bottom-grid">
+
+        <!-- ALCOHOL -->
+
+        <div class="panel safety-card">
+
+            <div class="panel-title">
+                ALCOHOL MONITOR
+            </div>
+
+            <div id="alcoholIndicator"
+                 class="status-indicator safe">
+            </div>
+
+            <strong id="alcoholStatus">
+                NO ALCOHOL DETECTED
+            </strong>
+
+        </div>
+
+
+        <!-- DRIVER SAFETY -->
+
+        <div class="panel safety-card">
+
+            <div class="panel-title">
+                DRIVER SAFETY
+            </div>
+
+            <div id="driverIndicator"
+                 class="status-indicator safe">
+            </div>
+
+            <strong id="safetyStatus">
+                MONITORING
+            </strong>
+
+        </div>
+
+
+        <!-- HARDWARE -->
+
+        <div class="panel safety-card">
+
+            <div class="panel-title">
+                SENSOR SYSTEM
+            </div>
+
+            <div id="hardwareIndicator"
+                 class="status-indicator warning">
+            </div>
+
+            <strong id="hardwareStatus">
+                WAITING FOR SENSORS
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- ALERT BAR -->
+
+    <section id="alertPanel"
+             class="alert-panel">
+
+        <span>🚨</span>
+
+        <strong id="alertText">
+            SAFETY ALERT
+        </strong>
+
+        <span>🚨</span>
+
+    </section>
+
+
+    <!-- EVENT LOG -->
+
+    <section class="panel log-panel">
+
+        <div class="panel-title">
+            SATARK EVENT LOG
+        </div>
+
+        <div id="eventLog">
+
+            <div class="log-entry">
+                SATARK system initialized
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        SATARK v2.0 • Driver Monitoring & Safety System
+
+    </footer>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+</body>
+</html>

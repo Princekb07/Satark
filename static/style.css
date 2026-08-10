@@ -1,0 +1,544 @@
+/* =========================================
+   SATARK v2.0
+   DRIVER MONITORING DASHBOARD
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07111f;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.dashboard {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 18px;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #0d1b2a;
+    border: 1px solid #1e3a52;
+    border-radius: 16px;
+
+    padding: 18px 24px;
+    margin-bottom: 18px;
+}
+
+.header h1 {
+    font-size: 32px;
+    letter-spacing: 3px;
+    color: #29d391;
+}
+
+.header p {
+    margin-top: 4px;
+    color: #9db0c3;
+    font-size: 14px;
+}
+
+.online {
+    color: #35e89a;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   GENERAL PANEL
+   ========================================= */
+
+.panel {
+    background: #0d1b2a;
+
+    border: 1px solid #1d3b53;
+    border-radius: 16px;
+
+    padding: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.panel-title {
+    color: #8fa9bd;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================================
+   MAIN GRID
+   ========================================= */
+
+.main-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 2fr)
+        minmax(280px, 1fr);
+
+    gap: 18px;
+}
+
+
+/* =========================================
+   CAMERA
+   ========================================= */
+
+.camera-panel {
+    min-width: 0;
+}
+
+.camera-container {
+    position: relative;
+
+    width: 100%;
+
+    background: #000000;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    aspect-ratio: 16 / 9;
+}
+
+.camera-container img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.camera-alert {
+    display: none;
+
+    position: absolute;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: rgba(190, 0, 0, 0.92);
+
+    padding: 12px 24px;
+
+    border-radius: 10px;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    animation: alertBlink 0.6s infinite;
+}
+
+.camera-alert.active {
+    display: block;
+}
+
+@keyframes alertBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.25;
+    }
+}
+
+
+/* =========================================
+   DRIVER INFORMATION
+   ========================================= */
+
+.driver-information {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-top: 14px;
+}
+
+.driver-information div {
+    background: #101f30;
+
+    border-radius: 10px;
+
+    padding: 12px;
+}
+
+.driver-information span {
+    display: block;
+
+    color: #7e96aa;
+
+    font-size: 10px;
+
+    margin-bottom: 6px;
+}
+
+.driver-information strong {
+    font-size: 14px;
+
+    color: #38e69c;
+}
+
+
+/* =========================================
+   RIGHT COLUMN
+   ========================================= */
+
+.right-column {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* =========================================
+   CLOCK
+   ========================================= */
+
+.clock-panel {
+    text-align: center;
+}
+
+#analogClock {
+    display: block;
+
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+
+    margin: 0 auto;
+}
+
+#digitalTime {
+    margin-top: 8px;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #35e89a;
+}
+
+
+/* =========================================
+   ENVIRONMENT
+   ========================================= */
+
+.environment-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.sensor-card {
+    background: #101f30;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    text-align: center;
+}
+
+.sensor-card span {
+    display: block;
+
+    font-size: 10px;
+
+    color: #8198aa;
+
+    margin-bottom: 10px;
+}
+
+.sensor-card strong {
+    font-size: 30px;
+
+    color: #39df9b;
+}
+
+.sensor-card small {
+    color: #8da3b5;
+}
+/* =========================================
+   ULTRASONIC DISTANCE MONITOR
+   ========================================= */
+
+.ultrasonic-section {
+    margin-top: 18px;
+}
+
+.distance-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.distance-card {
+    background: #101f30;
+    border: 1px solid #1d3b53;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+}
+
+.distance-card span {
+    display: block;
+    color: #8da3b5;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.distance-card strong {
+    display: block;
+    color: #39df9b;
+    font-size: 24px;
+}
+
+
+/* =========================================
+   BOTTOM SAFETY CARDS
+   ========================================= */
+
+.bottom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.safety-card {
+    text-align: center;
+}
+
+.safety-card strong {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.status-indicator {
+    width: 18px;
+    height: 18px;
+    margin: 10px auto;
+    border-radius: 50%;
+}
+
+.status-indicator.safe {
+    background: #35e89a;
+    box-shadow: 0 0 15px #35e89a;
+}
+
+.status-indicator.warning {
+    background: #ffb020;
+    box-shadow: 0 0 15px #ffb020;
+}
+
+.status-indicator.danger {
+    background: #ff3b3b;
+    box-shadow: 0 0 18px #ff3b3b;
+    animation: dangerBlink 0.6s infinite;
+}
+
+@keyframes dangerBlink {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
+
+/* =========================================
+   ALERT PANEL
+   ========================================= */
+
+.alert-panel {
+    display: none;
+
+    margin-top: 18px;
+    padding: 18px;
+
+    text-align: center;
+
+    background: #b51616;
+    border: 2px solid #ff5151;
+    border-radius: 14px;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    box-shadow: 0 0 25px rgba(255, 40, 40, 0.5);
+
+    animation: alertPanelBlink 0.6s infinite;
+}
+
+.alert-panel.active {
+    display: block;
+}
+
+@keyframes alertPanelBlink {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.45;
+    }
+}
+
+
+/* =========================================
+   EVENT LOG
+   ========================================= */
+
+.log-panel {
+    margin-top: 18px;
+}
+
+#eventLog {
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+.log-entry {
+    background: #101f30;
+
+    border-left: 3px solid #35e89a;
+
+    border-radius: 6px;
+
+    padding: 10px 12px;
+    margin-bottom: 8px;
+
+    color: #c2cfda;
+    font-size: 12px;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    padding: 20px 5px 8px;
+
+    text-align: center;
+
+    color: #62798d;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .distance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 550px) {
+
+    .dashboard {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 14px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .header p {
+        font-size: 11px;
+    }
+
+    .online {
+        font-size: 10px;
+    }
+
+    .camera-container {
+        aspect-ratio: 4 / 3;
+    }
+
+    .driver-information {
+        grid-template-columns: 1fr;
+    }
+
+    .distance-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .environment-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sensor-card strong {
+        font-size: 24px;
+    }
+
+    .alert-panel {
+        font-size: 19px;
+    }
+}
