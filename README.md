@@ -129,6 +129,7 @@ The SATARK monitoring dashboard provides a web-based interface for viewing syste
 ![SATARK Dashboard - View 4](assets/dashboard-4.jpeg)
 
 ---
+---
 
 ## 👨‍💻 Author
 
@@ -142,8 +143,8 @@ Developer & Robotics Enthusiast
 
 This project is licensed under the **MIT License**.
 
-See the `LICENSE` file for more details.
+See the [LICENSE](LICENSE) file for the complete license text.
 
 ---
 
-© 2026 Prince Kumar Barnwal. All rights reserved.
+© 2026 Prince Kumar Barnwal.
