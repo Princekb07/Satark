@@ -112,3 +112,10 @@ Satark/
 │   └── wakeup.mp3
 │
 └── logs/
+---
+
+## 📊 Dashboard
+
+The SATARK monitoring dashboard provides a web-based interface for viewing system status, sensor information, alerts, and monitoring data.
+
+![SATARK Dashboard](assets/Dashboard.png)
