@@ -38,7 +38,10 @@ The collected data is processed by the SATARK software stack. When a predefined 
 6. Record the event in the logs
 7. Display relevant information on the dashboard
 
-> System architecture diagram will be added in a future update.
+> System architecture diagram
+> ## Hardware Schematic
+
+![SATARK v2.0 Hardware Schematic](assets/schematic.png)
 
 ---
 
