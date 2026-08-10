@@ -112,8 +112,9 @@ Satark/
 │   └── wakeup.mp3
 │
 └── logs/
----
+```
 
+---
 
 ## 📊 Dashboard
 
